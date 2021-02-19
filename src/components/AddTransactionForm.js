@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {Alert} from '@material-ui/core'
+import { v4 as uuidv4 } from 'uuid';
 
 export default function AddTransactionForm({transactions, setTransactions}) {
     const [amount, setAmount] = useState(0)
@@ -29,9 +30,9 @@ export default function AddTransactionForm({transactions, setTransactions}) {
                     if(name == '') return alert('Must have a name')
                     if(name.length <= 2) return alert('Must have a longer name')
                     if(amount == 0) return alert("Can't make a transaction with 0$!")
-                    let lastID = transactions[transactions.length-1].id
+                    const id = uuidv4(); 
                     
-                    const newTransaction = {id:lastID+1,name, amount}
+                    const newTransaction = {id,name, amount}
                     
                     transactions.push(newTransaction)
                     setTransactions([...transactions])
