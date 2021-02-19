@@ -5,7 +5,10 @@ import IncomeExpenses from './components/IncomeExpenses';
 import TransactionList from './components/TransactionList';
 import AddTransactionForm from './components/AddTransactionForm';
 import { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 function App() {
 
   const [transactions, setTransactions] = useState([])
